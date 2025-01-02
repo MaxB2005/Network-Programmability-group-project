@@ -1,0 +1,32 @@
+- name: Basic Router Configuration
+  hosts: Routers
+  gather_facts: no
+  tasks:
+    - name: Add Banner
+      ios_banner:
+        banner: login
+        text: |
+          ---------------------------------
+          unauthorized access is prohibited
+          ---------------------------------
+        state: present #used to make the banner visible
+
+      
+    - name: Set IP Address
+      ios_config:
+        authorize: yes
+        parents: "interface GigabitEthernet0/1"
+        lines:
+          - ip address 192.10.20.1 255.255.255.0
+          - ipv6 address 2001:db8:2002::1/64
+          - no shutdown
+
+
+    - name: Show IP Interface brief
+      ios_command:
+      commands:
+      - show ip interface brief
+      register: output
+
+
+
