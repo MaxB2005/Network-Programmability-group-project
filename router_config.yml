@@ -1,17 +1,44 @@
 ---
 - name: test
   connection: network_cli
-  
   hosts: routers
   gather_facts: false
   
-  
+  tasks:
+    - name: Add Banner
+      ios_banner:
+        banner: login
+        text: |
+          ---------------------------------
+          unauthorized access is prohibited
+          ---------------------------------
+        state: present #used to make the banner visible
   
  
-
-
-  tasks:
-    - name: 1
+    - name: change_host_name
       ios_config:
         lines:
          - hostname Rchanged
+
+
+
+    - name: Set IP Address
+      ios_config:
+        #authorize: yes
+        parents: "interface GigabitEthernet2"
+        lines:
+          - ip address 192.10.20.1 255.255.255.0
+          - ipv6 address 2001:db8:2002::1/64
+          - no shutdown
+
+    - name: Show IP Interface brief
+      become: true
+      ios_command:
+        commands:
+          - show ip int brief
+      register: output
+      
+
+    - name: print output # used to print out the results of the show ip interface brief
+      debug:
+        var: output.stdout_lines
