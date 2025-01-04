@@ -1,0 +1,66 @@
+2025-01-04 19:58:04,054 p=56717 u=user n=ansible | Using /home/user/test/Network-Programmability-group-project/ansible.cfg as config file
+2025-01-04 19:58:04,937 p=56717 u=user n=ansible | PLAY [test] ************************************************************************************************************
+2025-01-04 19:58:04,967 p=56717 u=user n=ansible | TASK [Add Banner] ******************************************************************************************************
+2025-01-04 19:58:05,563 p=56717 u=user n=ansible | network_os is set to ios
+2025-01-04 19:58:05,564 p=56717 u=user n=ansible | [WARNING]: ansible-pylibssh not installed, falling back to paramiko
+
+2025-01-04 19:58:05,575 p=56733 u=user n=p=56733 u=user | paramiko [192.168.50.132] | Connected (version 2.0, client Cisco-1.25)
+2025-01-04 19:58:05,997 p=56733 u=user n=p=56733 u=user | paramiko [192.168.50.132] | Auth banner: b'\r\n---------------------------------\r\nunauthorized access is prohibited\r\n---------------------------------\r\n'
+2025-01-04 19:58:05,999 p=56733 u=user n=p=56733 u=user | paramiko [192.168.50.132] | Authentication (password) successful!
+2025-01-04 19:58:07,964 p=56717 u=user n=ansible | ok: [R1] => {"changed": false, "commands": []}
+2025-01-04 19:58:07,966 p=56717 u=user n=ansible | TASK [change_host_name] ************************************************************************************************
+2025-01-04 19:58:08,627 p=56717 u=user n=ansible | ok: [R1] => {"changed": false}
+2025-01-04 19:58:08,629 p=56717 u=user n=ansible | TASK [Set IP Address] **************************************************************************************************
+2025-01-04 19:58:11,360 p=56717 u=user n=ansible | [WARNING]: To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if
+present in the running configuration on device
+
+2025-01-04 19:58:11,360 p=56717 u=user n=ansible | changed: [R1] => {"banners": {}, "changed": true, "commands": ["interface GigabitEthernet2", "ipv6 address 2001:db8:2002::1/64", "no shutdown"], "updates": ["interface GigabitEthernet2", "ipv6 address 2001:db8:2002::1/64", "no shutdown"]}
+2025-01-04 19:58:11,361 p=56717 u=user n=ansible | TASK [Show IP Interface brief] *****************************************************************************************
+2025-01-04 19:58:11,840 p=56717 u=user n=ansible | ok: [R1] => {"changed": false, "stdout": ["Interface              IP-Address      OK? Method Status                Protocol\nGigabitEthernet1       192.168.50.132  YES manual up                    up      \nGigabitEthernet2       192.10.20.1     YES manual up                    up      \nGigabitEthernet3       unassigned      YES unset  administratively down down"], "stdout_lines": [["Interface              IP-Address      OK? Method Status                Protocol", "GigabitEthernet1       192.168.50.132  YES manual up                    up      ", "GigabitEthernet2       192.10.20.1     YES manual up                    up      ", "GigabitEthernet3       unassigned      YES unset  administratively down down"]]}
+2025-01-04 19:58:11,847 p=56717 u=user n=ansible | TASK [print output] ****************************************************************************************************
+2025-01-04 19:58:11,879 p=56717 u=user n=ansible | ok: [R1] => {
+    "output.stdout_lines": [
+        [
+            "Interface              IP-Address      OK? Method Status                Protocol",
+            "GigabitEthernet1       192.168.50.132  YES manual up                    up      ",
+            "GigabitEthernet2       192.10.20.1     YES manual up                    up      ",
+            "GigabitEthernet3       unassigned      YES unset  administratively down down"
+        ]
+    ]
+}
+2025-01-04 19:58:11,881 p=56717 u=user n=ansible | PLAY RECAP *************************************************************************************************************
+2025-01-04 19:58:11,881 p=56717 u=user n=ansible | R1                         : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-01-04 19:58:11,981 p=56733 u=user n=ansible | shutdown complete
+2025-01-04 19:58:54,841 p=56891 u=user n=ansible | Using /home/user/test/Network-Programmability-group-project/ansible.cfg as config file
+2025-01-04 19:58:55,157 p=56891 u=user n=ansible | PLAY [test] ************************************************************************************************************
+2025-01-04 19:58:55,164 p=56891 u=user n=ansible | TASK [Add Banner] ******************************************************************************************************
+2025-01-04 19:58:55,767 p=56891 u=user n=ansible | network_os is set to ios
+2025-01-04 19:58:55,767 p=56891 u=user n=ansible | [WARNING]: ansible-pylibssh not installed, falling back to paramiko
+
+2025-01-04 19:58:55,781 p=56907 u=user n=p=56907 u=user | paramiko [192.168.50.132] | Connected (version 2.0, client Cisco-1.25)
+2025-01-04 19:58:56,088 p=56907 u=user n=p=56907 u=user | paramiko [192.168.50.132] | Auth banner: b'\r\n---------------------------------\r\nunauthorized access is prohibited\r\n---------------------------------\r\n'
+2025-01-04 19:58:56,091 p=56907 u=user n=p=56907 u=user | paramiko [192.168.50.132] | Authentication (password) successful!
+2025-01-04 19:58:59,762 p=56891 u=user n=ansible | ok: [R1] => {"changed": false, "commands": []}
+2025-01-04 19:58:59,764 p=56891 u=user n=ansible | TASK [change_host_name] ************************************************************************************************
+2025-01-04 19:59:00,418 p=56891 u=user n=ansible | ok: [R1] => {"changed": false}
+2025-01-04 19:59:00,421 p=56891 u=user n=ansible | TASK [Set IP Address] **************************************************************************************************
+2025-01-04 19:59:03,353 p=56891 u=user n=ansible | [WARNING]: To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if
+present in the running configuration on device
+
+2025-01-04 19:59:03,354 p=56891 u=user n=ansible | changed: [R1] => {"banners": {}, "changed": true, "commands": ["interface GigabitEthernet2", "ipv6 address 2001:db8:2002::1/64", "no shutdown"], "updates": ["interface GigabitEthernet2", "ipv6 address 2001:db8:2002::1/64", "no shutdown"]}
+2025-01-04 19:59:03,358 p=56891 u=user n=ansible | TASK [Show IP Interface brief] *****************************************************************************************
+2025-01-04 19:59:03,849 p=56891 u=user n=ansible | ok: [R1] => {"changed": false, "stdout": ["Interface              IP-Address      OK? Method Status                Protocol\nGigabitEthernet1       192.168.50.132  YES manual up                    up      \nGigabitEthernet2       192.10.20.1     YES manual up                    up      \nGigabitEthernet3       unassigned      YES unset  administratively down down"], "stdout_lines": [["Interface              IP-Address      OK? Method Status                Protocol", "GigabitEthernet1       192.168.50.132  YES manual up                    up      ", "GigabitEthernet2       192.10.20.1     YES manual up                    up      ", "GigabitEthernet3       unassigned      YES unset  administratively down down"]]}
+2025-01-04 19:59:03,855 p=56891 u=user n=ansible | TASK [print output] ****************************************************************************************************
+2025-01-04 19:59:03,887 p=56891 u=user n=ansible | ok: [R1] => {
+    "output.stdout_lines": [
+        [
+            "Interface              IP-Address      OK? Method Status                Protocol",
+            "GigabitEthernet1       192.168.50.132  YES manual up                    up      ",
+            "GigabitEthernet2       192.10.20.1     YES manual up                    up      ",
+            "GigabitEthernet3       unassigned      YES unset  administratively down down"
+        ]
+    ]
+}
+2025-01-04 19:59:03,889 p=56891 u=user n=ansible | PLAY RECAP *************************************************************************************************************
+2025-01-04 19:59:03,889 p=56891 u=user n=ansible | R1                         : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-01-04 19:59:03,990 p=56907 u=user n=ansible | shutdown complete
