@@ -38,7 +38,17 @@
           - show ip int brief
       register: output
       
+    - name: Show IPv6 Interface brief #runs the show ipv6 interface brief command and outputs it
+      become: true
+      ios_command:
+        commands:
+          - show ipv6 int brief
+      register: output1
 
     - name: print output # used to print out the results of the show ip interface brief
       debug:
         var: output.stdout_lines
+
+    - name: print output1 # used to print out the results of the show ipv6 interface brief
+      debug:
+        var: output1.stdout_lines
