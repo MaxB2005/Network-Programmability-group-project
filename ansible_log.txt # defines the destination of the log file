@@ -1,0 +1,230 @@
+2025-01-06 10:29:16,587 p=62838 u=user n=ansible | PLAY [test] ************************************************************************************************************
+2025-01-06 10:29:16,597 p=62838 u=user n=ansible | TASK [Add Banner] ******************************************************************************************************
+2025-01-06 10:29:17,219 p=62838 u=user n=ansible | network_os is set to ios
+2025-01-06 10:29:17,220 p=62838 u=user n=ansible | [WARNING]: ansible-pylibssh not installed, falling back to paramiko
+
+2025-01-06 10:29:17,233 p=62848 u=user n=p=62848 u=user | paramiko [192.168.50.132] | Connected (version 2.0, client Cisco-1.25)
+2025-01-06 10:29:17,548 p=62848 u=user n=p=62848 u=user | paramiko [192.168.50.132] | Auth banner: b'\r\n---------------------------------\r\nunauthorized access is prohibited\r\n---------------------------------\r\n'
+2025-01-06 10:29:17,552 p=62848 u=user n=p=62848 u=user | paramiko [192.168.50.132] | Authentication (password) successful!
+2025-01-06 10:29:20,219 p=62838 u=user n=ansible | ok: [R1]
+2025-01-06 10:29:20,221 p=62838 u=user n=ansible | TASK [change_host_name] ************************************************************************************************
+2025-01-06 10:29:20,991 p=62838 u=user n=ansible | ok: [R1]
+2025-01-06 10:29:20,997 p=62838 u=user n=ansible | TASK [Set IP Address] **************************************************************************************************
+2025-01-06 10:29:22,818 p=62838 u=user n=ansible | [WARNING]: To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if
+present in the running configuration on device
+
+2025-01-06 10:29:22,821 p=62838 u=user n=ansible | changed: [R1]
+2025-01-06 10:29:22,824 p=62838 u=user n=ansible | TASK [Show IP Interface brief] *****************************************************************************************
+2025-01-06 10:29:23,336 p=62838 u=user n=ansible | ok: [R1]
+2025-01-06 10:29:23,343 p=62838 u=user n=ansible | TASK [print output] ****************************************************************************************************
+2025-01-06 10:29:23,375 p=62838 u=user n=ansible | ok: [R1] => {
+    "output.stdout_lines": [
+        [
+            "Interface              IP-Address      OK? Method Status                Protocol",
+            "GigabitEthernet1       192.168.50.132  YES manual up                    up      ",
+            "GigabitEthernet2       192.10.20.1     YES manual up                    up      ",
+            "GigabitEthernet3       unassigned      YES unset  administratively down down"
+        ]
+    ]
+}
+2025-01-06 10:29:23,378 p=62838 u=user n=ansible | PLAY RECAP *************************************************************************************************************
+2025-01-06 10:29:23,378 p=62838 u=user n=ansible | R1                         : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-01-06 10:29:23,479 p=62848 u=user n=ansible | shutdown complete
+2025-01-06 10:29:30,635 p=62864 u=user n=ansible | Using /home/user/test/Network-Programmability-group-project/ansible.cfg as config file
+2025-01-06 10:29:30,779 p=62864 u=user n=ansible | PLAY [test] ************************************************************************************************************
+2025-01-06 10:29:30,783 p=62864 u=user n=ansible | TASK [Add Banner] ******************************************************************************************************
+2025-01-06 10:29:31,092 p=62864 u=user n=ansible | network_os is set to ios
+2025-01-06 10:29:31,093 p=62864 u=user n=ansible | [WARNING]: ansible-pylibssh not installed, falling back to paramiko
+
+2025-01-06 10:29:31,100 p=62874 u=user n=p=62874 u=user | paramiko [192.168.50.132] | Connected (version 2.0, client Cisco-1.25)
+2025-01-06 10:29:31,590 p=62874 u=user n=p=62874 u=user | paramiko [192.168.50.132] | Auth banner: b'\r\n---------------------------------\r\nunauthorized access is prohibited\r\n---------------------------------\r\n'
+2025-01-06 10:29:31,593 p=62874 u=user n=p=62874 u=user | paramiko [192.168.50.132] | Authentication (password) successful!
+2025-01-06 10:29:37,505 p=62864 u=user n=ansible | ok: [R1] => {"changed": false, "commands": []}
+2025-01-06 10:29:37,509 p=62864 u=user n=ansible | TASK [change_host_name] ************************************************************************************************
+2025-01-06 10:29:38,215 p=62864 u=user n=ansible | ok: [R1] => {"changed": false}
+2025-01-06 10:29:38,219 p=62864 u=user n=ansible | TASK [Set IP Address] **************************************************************************************************
+2025-01-06 10:29:40,112 p=62864 u=user n=ansible | [WARNING]: To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if
+present in the running configuration on device
+
+2025-01-06 10:29:40,113 p=62864 u=user n=ansible | changed: [R1] => {"banners": {}, "changed": true, "commands": ["interface GigabitEthernet2", "ipv6 address 2001:db8:2002::1/64", "no shutdown"], "updates": ["interface GigabitEthernet2", "ipv6 address 2001:db8:2002::1/64", "no shutdown"]}
+2025-01-06 10:29:40,114 p=62864 u=user n=ansible | TASK [Show IP Interface brief] *****************************************************************************************
+2025-01-06 10:29:40,628 p=62864 u=user n=ansible | ok: [R1] => {"changed": false, "stdout": ["Interface              IP-Address      OK? Method Status                Protocol\nGigabitEthernet1       192.168.50.132  YES manual up                    up      \nGigabitEthernet2       192.10.20.1     YES manual up                    up      \nGigabitEthernet3       unassigned      YES unset  administratively down down"], "stdout_lines": [["Interface              IP-Address      OK? Method Status                Protocol", "GigabitEthernet1       192.168.50.132  YES manual up                    up      ", "GigabitEthernet2       192.10.20.1     YES manual up                    up      ", "GigabitEthernet3       unassigned      YES unset  administratively down down"]]}
+2025-01-06 10:29:40,632 p=62864 u=user n=ansible | TASK [print output] ****************************************************************************************************
+2025-01-06 10:29:40,670 p=62864 u=user n=ansible | ok: [R1] => {
+    "output.stdout_lines": [
+        [
+            "Interface              IP-Address      OK? Method Status                Protocol",
+            "GigabitEthernet1       192.168.50.132  YES manual up                    up      ",
+            "GigabitEthernet2       192.10.20.1     YES manual up                    up      ",
+            "GigabitEthernet3       unassigned      YES unset  administratively down down"
+        ]
+    ]
+}
+2025-01-06 10:29:40,672 p=62864 u=user n=ansible | PLAY RECAP *************************************************************************************************************
+2025-01-06 10:29:40,673 p=62864 u=user n=ansible | R1                         : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-01-06 10:29:40,776 p=62874 u=user n=ansible | shutdown complete
+2025-01-06 10:30:23,065 p=62890 u=user n=ansible | PLAY [test] ************************************************************************************************************
+2025-01-06 10:30:23,070 p=62890 u=user n=ansible | TASK [Add Banner] ******************************************************************************************************
+2025-01-06 10:30:23,383 p=62890 u=user n=ansible | network_os is set to ios
+2025-01-06 10:30:23,384 p=62890 u=user n=ansible | [WARNING]: ansible-pylibssh not installed, falling back to paramiko
+
+2025-01-06 10:30:23,392 p=62900 u=user n=p=62900 u=user | paramiko [192.168.50.132] | Connected (version 2.0, client Cisco-1.25)
+2025-01-06 10:30:23,854 p=62900 u=user n=p=62900 u=user | paramiko [192.168.50.132] | Auth banner: b'\r\n---------------------------------\r\nunauthorized access is prohibited\r\n---------------------------------\r\n'
+2025-01-06 10:30:23,855 p=62900 u=user n=p=62900 u=user | paramiko [192.168.50.132] | Authentication (password) successful!
+2025-01-06 10:30:29,499 p=62890 u=user n=ansible | ok: [R1]
+2025-01-06 10:30:29,502 p=62890 u=user n=ansible | TASK [change_host_name] ************************************************************************************************
+2025-01-06 10:30:30,142 p=62890 u=user n=ansible | ok: [R1]
+2025-01-06 10:30:30,145 p=62890 u=user n=ansible | TASK [Set IP Address] **************************************************************************************************
+2025-01-06 10:30:32,061 p=62890 u=user n=ansible | [WARNING]: To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if
+present in the running configuration on device
+
+2025-01-06 10:30:32,062 p=62890 u=user n=ansible | changed: [R1]
+2025-01-06 10:30:32,064 p=62890 u=user n=ansible | TASK [Show IP Interface brief] *****************************************************************************************
+2025-01-06 10:30:32,566 p=62890 u=user n=ansible | ok: [R1]
+2025-01-06 10:30:32,569 p=62890 u=user n=ansible | TASK [print output] ****************************************************************************************************
+2025-01-06 10:30:32,601 p=62890 u=user n=ansible | ok: [R1] => {
+    "output.stdout_lines": [
+        [
+            "Interface              IP-Address      OK? Method Status                Protocol",
+            "GigabitEthernet1       192.168.50.132  YES manual up                    up      ",
+            "GigabitEthernet2       192.10.20.1     YES manual up                    up      ",
+            "GigabitEthernet3       unassigned      YES unset  administratively down down"
+        ]
+    ]
+}
+2025-01-06 10:30:32,602 p=62890 u=user n=ansible | PLAY RECAP *************************************************************************************************************
+2025-01-06 10:30:32,602 p=62890 u=user n=ansible | R1                         : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-01-06 10:30:32,705 p=62900 u=user n=ansible | shutdown complete
+2025-01-06 10:51:52,404 p=62971 u=user n=ansible | PLAY [test] ************************************************************************************************************
+2025-01-06 10:51:52,420 p=62971 u=user n=ansible | TASK [Add Banner] ******************************************************************************************************
+2025-01-06 10:51:53,027 p=62971 u=user n=ansible | network_os is set to ios
+2025-01-06 10:51:53,028 p=62971 u=user n=ansible | [WARNING]: ansible-pylibssh not installed, falling back to paramiko
+
+2025-01-06 10:51:53,039 p=62981 u=user n=p=62981 u=user | paramiko [192.168.50.132] | Connected (version 2.0, client Cisco-1.25)
+2025-01-06 10:51:53,355 p=62981 u=user n=p=62981 u=user | paramiko [192.168.50.132] | Auth banner: b'\r\n---------------------------------\r\nunauthorized access is prohibited\r\n---------------------------------\r\n'
+2025-01-06 10:51:53,362 p=62981 u=user n=p=62981 u=user | paramiko [192.168.50.132] | Authentication (password) successful!
+2025-01-06 10:51:55,590 p=62971 u=user n=ansible | ok: [R1]
+2025-01-06 10:51:55,593 p=62971 u=user n=ansible | TASK [change_host_name] ************************************************************************************************
+2025-01-06 10:51:56,315 p=62971 u=user n=ansible | ok: [R1]
+2025-01-06 10:51:56,316 p=62971 u=user n=ansible | TASK [Set IP Address] **************************************************************************************************
+2025-01-06 10:51:59,194 p=62971 u=user n=ansible | [WARNING]: To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if
+present in the running configuration on device
+
+2025-01-06 10:51:59,195 p=62971 u=user n=ansible | changed: [R1]
+2025-01-06 10:51:59,196 p=62971 u=user n=ansible | TASK [Show IP Interface brief] *****************************************************************************************
+2025-01-06 10:51:59,682 p=62971 u=user n=ansible | ok: [R1]
+2025-01-06 10:51:59,686 p=62971 u=user n=ansible | TASK [Show IP Interface brief] *****************************************************************************************
+2025-01-06 10:52:00,226 p=62971 u=user n=ansible | ok: [R1]
+2025-01-06 10:52:00,229 p=62971 u=user n=ansible | TASK [print output] ****************************************************************************************************
+2025-01-06 10:52:00,262 p=62971 u=user n=ansible | ok: [R1] => {
+    "output.stdout_lines": [
+        [
+            "GigabitEthernet1       [up/up]",
+            "    unassigned",
+            "GigabitEthernet2       [up/up]",
+            "    FE80::20C:29FF:FED3:AE94",
+            "    2001:DB8:2002::1",
+            "GigabitEthernet3       [administratively down/down]",
+            "    unassigned"
+        ]
+    ]
+}
+2025-01-06 10:52:00,263 p=62971 u=user n=ansible | PLAY RECAP *************************************************************************************************************
+2025-01-06 10:52:00,263 p=62971 u=user n=ansible | R1                         : ok=6    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-01-06 10:52:00,372 p=62981 u=user n=ansible | shutdown complete
+2025-01-06 10:52:46,436 p=63001 u=user n=ansible | PLAY [test] ************************************************************************************************************
+2025-01-06 10:52:46,444 p=63001 u=user n=ansible | TASK [Add Banner] ******************************************************************************************************
+2025-01-06 10:52:46,838 p=63001 u=user n=ansible | network_os is set to ios
+2025-01-06 10:52:46,839 p=63001 u=user n=ansible | [WARNING]: ansible-pylibssh not installed, falling back to paramiko
+
+2025-01-06 10:52:46,850 p=63011 u=user n=p=63011 u=user | paramiko [192.168.50.132] | Connected (version 2.0, client Cisco-1.25)
+2025-01-06 10:52:47,326 p=63011 u=user n=p=63011 u=user | paramiko [192.168.50.132] | Auth banner: b'\r\n---------------------------------\r\nunauthorized access is prohibited\r\n---------------------------------\r\n'
+2025-01-06 10:52:47,330 p=63011 u=user n=p=63011 u=user | paramiko [192.168.50.132] | Authentication (password) successful!
+2025-01-06 10:52:49,556 p=63001 u=user n=ansible | ok: [R1]
+2025-01-06 10:52:49,559 p=63001 u=user n=ansible | TASK [change_host_name] ************************************************************************************************
+2025-01-06 10:52:50,339 p=63001 u=user n=ansible | ok: [R1]
+2025-01-06 10:52:50,341 p=63001 u=user n=ansible | TASK [Set IP Address] **************************************************************************************************
+2025-01-06 10:52:52,215 p=63001 u=user n=ansible | [WARNING]: To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if
+present in the running configuration on device
+
+2025-01-06 10:52:52,215 p=63001 u=user n=ansible | changed: [R1]
+2025-01-06 10:52:52,217 p=63001 u=user n=ansible | TASK [Show IP Interface brief] *****************************************************************************************
+2025-01-06 10:52:52,713 p=63001 u=user n=ansible | ok: [R1]
+2025-01-06 10:52:52,716 p=63001 u=user n=ansible | TASK [Show IPv6 Interface brief] ***************************************************************************************
+2025-01-06 10:52:53,245 p=63001 u=user n=ansible | ok: [R1]
+2025-01-06 10:52:53,253 p=63001 u=user n=ansible | TASK [print output] ****************************************************************************************************
+2025-01-06 10:52:53,292 p=63001 u=user n=ansible | ok: [R1] => {
+    "output.stdout_lines": [
+        [
+            "Interface              IP-Address      OK? Method Status                Protocol",
+            "GigabitEthernet1       192.168.50.132  YES manual up                    up      ",
+            "GigabitEthernet2       192.10.20.1     YES manual up                    up      ",
+            "GigabitEthernet3       unassigned      YES unset  administratively down down"
+        ]
+    ]
+}
+2025-01-06 10:52:53,293 p=63001 u=user n=ansible | TASK [print output1] ***************************************************************************************************
+2025-01-06 10:52:53,326 p=63001 u=user n=ansible | ok: [R1] => {
+    "output1.stdout_lines": [
+        [
+            "GigabitEthernet1       [up/up]",
+            "    unassigned",
+            "GigabitEthernet2       [up/up]",
+            "    FE80::20C:29FF:FED3:AE94",
+            "    2001:DB8:2002::1",
+            "GigabitEthernet3       [administratively down/down]",
+            "    unassigned"
+        ]
+    ]
+}
+2025-01-06 10:52:53,327 p=63001 u=user n=ansible | PLAY RECAP *************************************************************************************************************
+2025-01-06 10:52:53,327 p=63001 u=user n=ansible | R1                         : ok=7    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-01-06 10:52:53,433 p=63011 u=user n=ansible | shutdown complete
+2025-01-06 11:15:49,994 p=63158 u=user n=ansible | PLAY [test] ************************************************************************************************************
+2025-01-06 11:15:50,009 p=63158 u=user n=ansible | TASK [Add Banner] ******************************************************************************************************
+2025-01-06 11:15:50,602 p=63158 u=user n=ansible | network_os is set to ios
+2025-01-06 11:15:50,602 p=63158 u=user n=ansible | [WARNING]: ansible-pylibssh not installed, falling back to paramiko
+
+2025-01-06 11:15:50,622 p=63168 u=user n=p=63168 u=user | paramiko [192.168.50.132] | Connected (version 2.0, client Cisco-1.25)
+2025-01-06 11:15:50,943 p=63168 u=user n=p=63168 u=user | paramiko [192.168.50.132] | Authentication (password) successful!
+2025-01-06 11:15:55,624 p=63158 u=user n=ansible | changed: [R1]
+2025-01-06 11:15:55,626 p=63158 u=user n=ansible | TASK [change_host_name] ************************************************************************************************
+2025-01-06 11:15:57,961 p=63158 u=user n=ansible | [WARNING]: To ensure idempotency and correct diff the input configuration lines should be similar to how they appear if
+present in the running configuration on device
+
+2025-01-06 11:15:57,961 p=63158 u=user n=ansible | changed: [R1]
+2025-01-06 11:15:57,963 p=63158 u=user n=ansible | TASK [Set IP Address] **************************************************************************************************
+2025-01-06 11:16:01,219 p=63158 u=user n=ansible | changed: [R1]
+2025-01-06 11:16:01,221 p=63158 u=user n=ansible | TASK [Show IP Interface brief] *****************************************************************************************
+2025-01-06 11:16:01,778 p=63158 u=user n=ansible | ok: [R1]
+2025-01-06 11:16:01,781 p=63158 u=user n=ansible | TASK [Show IPv6 Interface brief] ***************************************************************************************
+2025-01-06 11:16:02,318 p=63158 u=user n=ansible | ok: [R1]
+2025-01-06 11:16:02,320 p=63158 u=user n=ansible | TASK [print output] ****************************************************************************************************
+2025-01-06 11:16:02,362 p=63158 u=user n=ansible | ok: [R1] => {
+    "output.stdout_lines": [
+        [
+            "Interface              IP-Address      OK? Method Status                Protocol",
+            "GigabitEthernet1       192.168.50.132  YES NVRAM  up                    up      ",
+            "GigabitEthernet2       192.10.20.1     YES manual up                    down    ",
+            "GigabitEthernet3       unassigned      YES NVRAM  administratively down down"
+        ]
+    ]
+}
+2025-01-06 11:16:02,363 p=63158 u=user n=ansible | TASK [print output1] ***************************************************************************************************
+2025-01-06 11:16:02,399 p=63158 u=user n=ansible | ok: [R1] => {
+    "output1.stdout_lines": [
+        [
+            "GigabitEthernet1       [up/up]",
+            "    FE80::20C:29FF:FED3:AE8A",
+            "    2001:DB8:2003::1",
+            "GigabitEthernet2       [up/down]",
+            "    FE80::20C:29FF:FED3:AE94",
+            "    2001:DB8:2002::1",
+            "GigabitEthernet3       [administratively down/down]",
+            "    unassigned"
+        ]
+    ]
+}
+2025-01-06 11:16:02,401 p=63158 u=user n=ansible | PLAY RECAP *************************************************************************************************************
+2025-01-06 11:16:02,401 p=63158 u=user n=ansible | R1                         : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2025-01-06 11:16:02,502 p=63168 u=user n=ansible | shutdown complete
