@@ -1,28 +1,28 @@
 ---    
-- name: test
+- name: test                     # name of the play
   connection: network_cli
-  hosts: routers
+  hosts: routers            # the list of devices that the play will be run on
   gather_facts: false
   
-  tasks:
+  tasks:                   # Task section
     - name: Add Banner
-      ios_banner:
+      ios_banner:        
         banner: login
         text: |
           ---------------------------------
           unauthorized access is prohibited
           ---------------------------------
-        state: present #used to make the banner visible
+        state: present # used to make the banner visible
   
  
-    - name: change_host_name
+    - name: change_host_name # changes hostname of the router to Rchanged
       ios_config:
         lines:
          - hostname Rchanged
 
 
 
-    - name: Set IP Address
+    - name: Set IP Address # sets the ip address of gig2 to 192.10.20.1 255.255.255.0 and the ipv6 to 2001:db8:2002::1/64 
       ios_config:
         #authorize: yes
         parents: "interface GigabitEthernet2"
@@ -31,7 +31,7 @@
           - ipv6 address 2001:db8:2002::1/64
           - no shutdown
 
-    - name: Show IP Interface brief
+    - name: Show IP Interface brief #runs the show ip interface brief command and outputs it
       become: true
       ios_command:
         commands:
