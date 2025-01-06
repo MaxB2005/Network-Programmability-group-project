@@ -45,6 +45,12 @@
           - show ipv6 int brief
       register: output1
 
+    - name: save changes # saves the configuration changes
+      become: true
+      ios_command:
+        commands:
+          - wr
+
     - name: print output # used to print out the results of the show ip interface brief
       debug:
         var: output.stdout_lines
